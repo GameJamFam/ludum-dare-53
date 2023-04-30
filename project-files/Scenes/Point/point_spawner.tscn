@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://x6gg4j5aonst"]
+
+[ext_resource type="Script" path="res://Scenes/Point/point_spawner.gd" id="1_g16rh"]
+[ext_resource type="PackedScene" uid="uid://5ksi7860uylt" path="res://Scenes/Point/point.tscn" id="2_shepn"]
+
+[node name="DataSpawner" type="Node2D"]
+script = ExtResource("1_g16rh")
+Point = ExtResource("2_shepn")

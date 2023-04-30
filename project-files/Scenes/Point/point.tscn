@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://5ksi7860uylt"]
+
+[ext_resource type="Script" path="res://Scenes/Point/Point.gd" id="1_fpe0e"]
+[ext_resource type="Texture2D" uid="uid://cqw5llmfc70oo" path="res://Assets/pickup-blank.png" id="2_qyumq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gkqlj"]
+radius = 24.0832
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xupff"]
+radius = 48.1664
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yyfan"]
+radius = 66.1211
+
+[node name="Point" type="Node2D"]
+script = ExtResource("1_fpe0e")
+trackColors = Array[Color]([Color(0.211765, 0.278431, 0.639216, 1), Color(0.662745, 0.164706, 0.666667, 1), Color(0.882353, 0.431373, 0.278431, 1), Color(0.619608, 0.811765, 0.301961, 1), Color(0.509804, 0.894118, 0.968627, 1)])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qyumq")
+
+[node name="PerfectArea" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/PerfectArea"]
+shape = SubResource("CircleShape2D_gkqlj")
+
+[node name="GreatArea" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/GreatArea"]
+shape = SubResource("CircleShape2D_xupff")
+
+[node name="GoodArea" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/GoodArea"]
+shape = SubResource("CircleShape2D_yyfan")
+
+[connection signal="area_entered" from="Sprite2D/PerfectArea" to="." method="_on_perfect_area_area_entered"]
+[connection signal="area_exited" from="Sprite2D/PerfectArea" to="." method="_on_perfect_area_area_exited"]
+[connection signal="area_entered" from="Sprite2D/GreatArea" to="." method="_on_great_area_area_entered"]
+[connection signal="area_exited" from="Sprite2D/GreatArea" to="." method="_on_great_area_area_exited"]
+[connection signal="area_entered" from="Sprite2D/GoodArea" to="." method="_on_good_area_area_entered"]
+[connection signal="area_exited" from="Sprite2D/GoodArea" to="." method="_on_good_area_area_exited"]

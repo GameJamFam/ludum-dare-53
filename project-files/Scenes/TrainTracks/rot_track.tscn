@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxalcybm2gk8"]
+
+[ext_resource type="Texture2D" uid="uid://cvanx6quuiylh" path="res://Assets/train-track.png" id="2_fwpid"]
+
+[node name="StraightTrack" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(-1, 0)
+scale = Vector2(0.496, 0.5)
+texture = ExtResource("2_fwpid")

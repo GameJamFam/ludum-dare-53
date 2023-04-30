@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfucv1axapltr"]
+
+[ext_resource type="Script" path="res://Scenes/TrainTracks/single_track.gd" id="1_0ttoy"]
+[ext_resource type="PackedScene" uid="uid://cy5njrsb3qoyg" path="res://Scenes/TrainTracks/straight_track.tscn" id="1_hc31j"]
+[ext_resource type="PackedScene" uid="uid://dxalcybm2gk8" path="res://Scenes/TrainTracks/rot_track.tscn" id="1_py187"]
+
+[sub_resource type="Animation" id="Animation_dt08d"]
+resource_name = "traintrack_flyin"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrackPieces:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2048, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c8iaj"]
+resource_name = "traintrack_flyout"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrackPieces:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2048, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a30fg"]
+_data = {
+"traintrack_flyin": SubResource("Animation_dt08d"),
+"traintrack_flyout": SubResource("Animation_c8iaj")
+}
+
+[node name="Track" type="Node2D"]
+script = ExtResource("1_0ttoy")
+HEIGHT = 90
+HEIGHT_OFFSET = 20
+
+[node name="TrackPieces" type="Node2D" parent="."]
+
+[node name="SwitchIn" parent="TrackPieces" instance=ExtResource("1_py187")]
+position = Vector2(1029, -26)
+rotation = -0.523599
+
+[node name="StraightTrack" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(-571, 0)
+
+[node name="StraightTrack2" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(-445, 0)
+
+[node name="StraightTrack3" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(-319, 0)
+
+[node name="StraightTrack4" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(-193, 0)
+
+[node name="StraightTrack5" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(-68, 0)
+
+[node name="StraightTrack6" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(58, 0)
+
+[node name="StraightTrack7" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(184, 0)
+
+[node name="StraightTrack8" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(310, 0)
+
+[node name="StraightTrack9" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(436, 0)
+
+[node name="StraightTrack10" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(561, 0)
+
+[node name="StraightTrack11" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(686, 0)
+
+[node name="StraightTrack12" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(934, 0)
+
+[node name="StraightTrack13" parent="TrackPieces" instance=ExtResource("1_hc31j")]
+position = Vector2(809, 0)
+
+[node name="SwitchOut" parent="TrackPieces" instance=ExtResource("1_py187")]
+position = Vector2(-665, -26)
+rotation = 0.541052
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a30fg")
+}

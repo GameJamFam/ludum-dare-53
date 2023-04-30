@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy5njrsb3qoyg"]
+
+[ext_resource type="Shader" path="res://track-repeat.gdshader" id="1_cibse"]
+[ext_resource type="Texture2D" uid="uid://cvanx6quuiylh" path="res://Assets/train-track.png" id="2_6n8g3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1osm0"]
+shader = ExtResource("1_cibse")
+
+[node name="StraightTrack" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1osm0")
+position = Vector2(-1, 0)
+scale = Vector2(0.496, 0.5)
+texture = ExtResource("2_6n8g3")

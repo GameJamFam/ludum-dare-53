@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://37f57q6a72u"]
+
+[ext_resource type="Script" path="res://Scenes/Obstacles/Boulder.gd" id="1_2jcd1"]
+[ext_resource type="Texture2D" uid="uid://cqw5llmfc70oo" path="res://Assets/pickup-blank.png" id="2_8geyc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gkqlj"]
+radius = 67.0
+
+[node name="Boulder" type="Node2D"]
+script = ExtResource("1_2jcd1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_8geyc")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_gkqlj")
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
