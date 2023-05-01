@@ -1,33 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwhvhewvtmabf"]
+[gd_scene load_steps=7 format=3 uid="uid://dwhvhewvtmabf"]
 
 [ext_resource type="Script" path="res://Scenes/MainGame.gd" id="1_dj5cs"]
+[ext_resource type="PackedScene" uid="uid://t1upu8wdbbpw" path="res://Scenes/TrainTracks/dynamic_track.tscn" id="2_bqs86"]
 [ext_resource type="PackedScene" uid="uid://dfucv1axapltr" path="res://Scenes/TrainTracks/single_track.tscn" id="2_qv7ac"]
 [ext_resource type="PackedScene" uid="uid://cap7hht8dxuvt" path="res://Scenes/Player/player.tscn" id="3_aq805"]
 [ext_resource type="PackedScene" uid="uid://x6gg4j5aonst" path="res://Scenes/Point/point_spawner.tscn" id="4_1ldli"]
+[ext_resource type="Script" path="res://Scenes/Conductor.gd" id="6_pam7j"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_dj5cs")
-TrainTrack = ExtResource("2_qv7ac")
+TrainTrack = ExtResource("2_bqs86")
 
 [node name="TrainTracks" type="Node2D" parent="."]
 
 [node name="C Track" parent="TrainTracks" instance=ExtResource("2_qv7ac")]
-position = Vector2(288, 721)
+position = Vector2(8, 728)
 
 [node name="B Track" parent="TrainTracks" instance=ExtResource("2_qv7ac")]
-position = Vector2(296, 621)
+position = Vector2(16, 628)
 
 [node name="A Track" parent="TrainTracks" instance=ExtResource("2_qv7ac")]
-position = Vector2(303, 523)
+position = Vector2(23, 530)
 
 [node name="G Track" parent="TrainTracks" instance=ExtResource("2_qv7ac")]
-position = Vector2(304, 421)
+position = Vector2(24, 428)
+scale = Vector2(1, -1)
 
 [node name="F Track" parent="TrainTracks" instance=ExtResource("2_qv7ac")]
-position = Vector2(290, 320)
+position = Vector2(10, 327)
+scale = Vector2(1, -1)
 
 [node name="DataSpawner" parent="." instance=ExtResource("4_1ldli")]
 position = Vector2(724, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_aq805")]
 position = Vector2(68, 307)
+
+[node name="Conductor" type="AudioStreamPlayer" parent="."]
+script = ExtResource("6_pam7j")
+
+[node name="InGameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
